@@ -59,10 +59,29 @@ const states = [
 	"West Virginia",
 	"Wisconsin",
 	"Wyoming"
-]
-
-let $state = document.querySelector(`[name="state"]`)
-let $suggestions = document.querySelector(`.suggestions`)
+];
 
 
-console.log($state);
+
+
+var $state = document.getElementById('state');
+
+let getValue = function() {
+	let $suggestions = document.querySelector('.suggestions');
+	var $state = document.getElementById('state').value;
+	$suggestions.innerHTML = $state;
+}
+
+
+let arrChec = function(query) {
+	return states.filter(function(el) {
+		return el.toLowerCase().indexOf(query) > -1;
+		getValue();
+	});
+}
+
+$state.addEventListener('keypress', arrChec);
+
+
+
+
